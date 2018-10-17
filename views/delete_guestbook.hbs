@@ -1,0 +1,22 @@
+{{>header}}
+<section class="section">
+
+    <form method="POST" action="/deleteGBEntryByID">
+        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+        <div class="columns notification">
+            <div class="column is-one-fifth">
+                {{>menu_section}}
+            </div>
+            <div class="column is-half">
+                <div class="field">
+                    <label class="label">Delete guest book entry</label>
+                    <div class="control">
+                        <input class="input" type="text" name="entryID" placeholder="Enter ID of the entry you would like to delete">
+                    </div>
+                </div>
+                <input class="button" type="submit" value="Delete entry!">
+            </div>
+        </div>
+        </div>
+    </form>
+</section>

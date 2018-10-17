@@ -1,0 +1,30 @@
+{{>header}}
+<section class="section">
+
+
+
+<div class="columns notification">
+    <div class="column is-one-fifth">
+        {{>menu_section}}
+    </div>
+
+    <div class="column is-half">
+        <div class="field">
+        <label class="label">Blog post</label>
+            <div class="field">
+                <form method="POST" action="/writeBlogPost">
+                    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                    <div class="control">
+                        <input class="input" type="text" name="blogTitle" placeholder="Title" required>
+                        <textarea class="textarea" name="blogText" placeholder="Text" required></textarea>
+                        <input class="button" type="submit" value="Submit post!">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+

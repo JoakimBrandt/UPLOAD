@@ -1,0 +1,28 @@
+{{>header}}
+<section class="section">
+
+    <form method="POST" action="/editBlogPost/{{blogPost.Id}}">
+        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+        <div class="columns notification">
+            <div class="column is-one-fifth">
+                {{>menu_section}}
+            </div>
+
+            <div class="column is-half">
+                <div class="field">
+                    <label class="label">Edit blog post</label>
+
+                    <div class="field">
+
+                        <div class="control">
+                            <textarea class="input" type="text" name="newBlogTitle" placeholder="New title">{{blogPost.Title}}</textarea>
+                            <textarea class="input" name="newBlogContent" placeholder="New entry here..">{{blogPost.Post}}</textarea>
+                            <input class="button" type="submit" value="Update post!">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,83 @@
+<section class="hero is-info is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                Guest Book <i class="fas fa-book-reader"></i>
+            </p>
+        </div>
+    </div>
+</section>
+
+<form style="width: 800px" method="POST" action="/writeGuestBookEntry">
+    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+<section class="section">
+    <div class="columns">
+        <div class="column is-2 is-offset-5"></div>
+        <div class="column is-10">
+            <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                    <input class="input" type="text" name="guestbookTitle" placeholder="Enter the title.." required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" name="guestbookAuthor" placeholder="Your name.." required>
+
+
+            <div class="field">
+                <label class="label">Message</label>
+                <div class="control">
+                    <textarea class="textarea" name="guestbookContent" placeholder="Your entry.." required></textarea>
+                </div>
+            </div>
+                    <input class="button" type="submit" value="Submit entry!">
+
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+        </form>
+
+<section class="hero has-bg-img">
+{{#if entries}}
+    {{#each entries}}
+            <div class="column is-8 is-offset-2">
+                                <div class="column has-text-centered">
+                                    <div class="notification">
+                                        <div class="content">
+                                            <strong>{{Title}}</strong>
+                                            <br>
+                                            {{Content}}
+                                            <br>
+                                            <p>By {{Author}}</p>
+                                        </div>
+                                    </div>
+                                    {{#if ../isLoggedIn}}
+                                        <div class="container has-text-left is-small">
+                                            <div class="containers">
+                                                <div class="buttons">
+                                                <form method="GET" action="/editGBEntryByID/{{Id}}">
+                                                    <input class="button is-rounded is-info is-small" type="submit" value="Edit Entry">
+                                                </form>
+                                                <form method="POST" action="/deleteGBEntryByID/{{Id}}">
+                                                    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                                                    <input class="button is-rounded is-danger is-small" type="submit" value="Delete entry">
+                                                </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                                </div>
+                    {{/each}}
+
+                {{else}}
+                        <p>No blog entries exist.</p>
+                {{/if}}
+    </div>
+</section>
+

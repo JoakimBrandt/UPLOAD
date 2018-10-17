@@ -1,0 +1,26 @@
+{{>header}}
+<section class="section">
+
+    <form method="POST" action="/editGallery/{{galleryPost.Id}}">
+        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+        <div class="columns notification">
+            <div class="column is-one-fifth">
+                {{>menu_section}}
+            </div>
+
+            <div class="column is-half">
+                <div class="field">
+                    <label class="label">Edit gallery entry</label>
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="input" type="text" name="newGalleryTitle" placeholder="New title">{{galleryPost.Title}}</textarea>
+                            <textarea class="textarea" name="newGalleryContent" placeholder="New entry here..">{{galleryPost.Text}}</textarea>
+                            <input class="button" type="submit" value="Update gallery entry!">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

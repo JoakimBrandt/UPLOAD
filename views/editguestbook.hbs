@@ -1,0 +1,32 @@
+{{>header}}
+<section class="section">
+
+    <form method="POST" action="/editGuestBook/{{guestbookPost.Id}}">
+        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+        <div class="columns notification">
+            <div class="column is-one-fifth">
+                {{>menu_section}}
+            </div>
+
+            <div class="column is-half">
+                <div class="field">
+                    <label class="label">Edit guest book entry</label>
+                    <div class="field">
+
+                        <div class="control">
+                            <textarea class="input" type="text" name="newGuestBookTitle" placeholder="New title">{{guestbookPost.Title}}</textarea>
+                            <textarea class="textarea" name="newGuestBookContent" placeholder="New entry here..">{{guestbookPost.Content}}</textarea>
+                            <input class="button" type="submit" value="Update entry!">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</section>

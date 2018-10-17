@@ -1,0 +1,67 @@
+    <style>
+        .columns:nth-child(2)
+        {margin-top: -10rem;}
+    </style>
+<section class="hero is-info is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                Gallery <i class="fas fa-images"></i>
+            </p>
+        </div>
+    </div>
+</section>
+
+    {{#if isLoggedIn}}
+        <section class="section has-bg-img">
+            <div class="container">
+                <a href="/new_gallery" class="button is-info is-rounded box">New Image</a>
+            </div>
+        </section>
+    {{/if}}
+
+    <section class="hero has-bg-img">
+        <section class="container">
+        {{#if gallery}}
+        {{#each gallery}}
+                <div class="card box">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{Path}}" alt="">
+                        </figure>
+                        <div class="card-content is-overlay is-clipped">
+                            <span class="tag is-info">
+                                {{Title}}
+                            </span>
+                        </div>
+                        <div class="card-content is-small">
+                            {{Text}}
+                            <br>
+                        </div>
+                    {{#if @root.isLoggedIn}}
+                        <div class="container has-text-left is-small">
+                            <br>
+                            
+                            <div class="buttons">
+                            <form method="GET" action="/editGalleryPostByID/{{Id}}">
+                                <input class="button is-rounded is-info is-small" type="submit" value="Edit image">
+                            </form>
+
+                            <form method="POST" action="/deleteGalleryPostByID/{{Id}}/{{Path}}">
+                                <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                                <input class="button is-rounded is-danger is-small" type="submit" value="Delete image">
+                            </form>
+                            </div>
+
+                        </div>
+                    {{/if}}
+                    </div>
+                </div>
+
+        {{/each}}
+
+    {{else}}
+            <p>No pictures exist.</p>
+    {{/if}}
+        </section>
+    </section>

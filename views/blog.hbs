@@ -1,0 +1,57 @@
+<section class="hero is-info is-small ">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+                Blog <i class="fas fa-rss"></i>
+            </p>
+        </div>
+    </div>
+</section>
+{{#if isLoggedIn}}
+<section class="section has-bg-img">
+    <div class="container">
+        <a href="/new_blogpost" class="button is-info is-rounded box">New Entry</a>
+    </div>
+</section>
+{{/if}}
+
+{{#if blogpost}}
+    {{#each blogpost}}
+
+<section class="section has-bg-img">
+    <div class="container has-text-centered">
+        <div class="notification">
+            <div class="content">
+                <strong>{{Title}}</strong>
+                <br>
+                {{Post}}
+                {{#if ../isLoggedIn}}
+                    <div class="container has-text-left">
+                    <br>
+
+                    <div class="buttons">
+                    <form method="GET" action="/editBlogPostByID/{{Id}}">
+                    <input class="button is-rounded is-info is-small" type="submit" value="Edit post">
+                    </form>
+
+                    <form method="POST" action="/deleteBlogPostByID/{{Id}}">
+                        <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                    <input class="button is-rounded is-danger is-small" type="submit" value="Delete post">
+                    </form>
+                    </div>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+    {{/each}}
+{{else}}
+    <p>No blog entries exist.</p>
+{{/if}}
+
+
+
+
+

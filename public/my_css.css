@@ -1,0 +1,4 @@
+.has-bg-img {
+    background: #999 url('/assets/images/background3.jpg') no-repeat fixed center center;
+    background-size: cover;
+}

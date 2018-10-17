@@ -1,0 +1,30 @@
+{{>header}}
+<section class="section">
+
+<div class="columns notification">
+    <div class="column is-one-fifth">
+        {{>menu_section}}
+    </div>
+
+    <div class="column is-half">
+        <div class="field">
+            <label class="label">Blog post</label>
+            <div class="field">
+                <form ref="uploadForm" id="uploadForm" action="/uploadPicture" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                    <div class="control">
+                        <label class="label">Upload new Picture</label>
+                        <input class="input" type="text" name="pictureTitle" placeholder="Title" required>
+                        <input class="input" type="text" name="pictureText" placeholder="Text" required>
+                        <input type="file" name="sampleFile" accept="image/x-png,image/image/jpeg" required/>
+                        <br>
+                        <input class="button" type="submit" value="Submit post!">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</section>

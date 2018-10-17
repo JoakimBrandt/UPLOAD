@@ -1,0 +1,39 @@
+<section class="hero is-info is-small">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title">
+            <i class="fas fa-sign-in-alt"></i>
+            </p>
+        </div>
+    </div>
+</section>
+        <div class="hero-body has-bg-img">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <div class="box">
+                        <figure class="is-rounded is-128x128">
+                            <img src="avatar.jpg">
+                        </figure>
+
+
+                        <form action="/login" method="POST">
+                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="username" name="userName" placeholder="Username" autofocus="" required>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" name="password" placeholder="Password" required>
+                                </div>
+                            </div>
+
+                            <input class="button" type="submit" value="Login">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

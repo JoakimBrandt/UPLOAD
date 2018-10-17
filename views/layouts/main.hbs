@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+ <link rel="stylesheet" href="/my_css.css">
+ <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+ <title>The Lord's Site</title>
+ </head>
+
+ <section class="hero">
+<div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div id="navbarMenuHeroA" class="navbar-menu is-active">
+          <div class="navbar-end">
+
+              {{#if isLoggedIn}}
+
+                  <a href="/admin_page" class="navbar-item">
+                      <i class="fab fa-jedi-order"></i>
+                  </a>
+
+              {{/if}}
+
+            <a href="/home" class="navbar-item">
+              <span class="icon">
+                <i class="fas fa-home"></i>
+              </span>
+            </a>
+
+            <a href="/about" class="navbar-item">
+              About
+            </a>
+
+            <a href="/blog" class="navbar-item">
+              Blog
+            </a>
+
+            <a href="/gallery" class="navbar-item">
+                Gallery
+            </a>
+
+            <a href="/guest_book" class="navbar-item">
+                Guest Book
+            </a>
+
+              {{#if isLoggedIn}}
+                    <a href="/logout" class="navbar-item">
+                        <i class="fas fa-unlock"></i> Logout
+                    </a>
+              {{else}}
+                    <a href="/login" class="navbar-item">
+                        <i class="fas fa-user-lock"></i> Login
+                    </a>
+              {{/if}}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+ <body>
+    {{{body}}}
+ </body>
+
+
+    <div class="hero-foot">
+        <nav class="tabs is-boxed is-fullwidth">
+            <div class="container has-text-centered">
+                <ul>
+                    <li><a href="https://www.instagram.com/LordJoakimBrandt"><i class="fab fa-instagram"></i></a></li>
+                    <li>Joakim Brandt | Web Development Fundamentals -18</li>
+                    <li><a href="https://bulma.io/">Bulma</a></li>
+                    <li><a href="https://www.facebook.com/LordBrandt"><i class="fab fa-facebook"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+ </section>
+ </html>
